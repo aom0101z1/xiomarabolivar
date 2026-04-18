@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" data-i18n="meta.desc" content="Dra. Xiomara Bolívar — Odontología integral de excelencia. Ortodoncia, implantes, diseño de sonrisa, estética dental y más." />
+<title data-i18n="meta.title">Dra. Xiomara Bolívar · Odontología de Excelencia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fbf8f2;
+    --bg-2:#f3ecdd;
+    --paper:#ffffff;
+    --gold:#b8892b;
+    --gold-2:#d4af37;
+    --gold-soft:#8a6518;
+    --ink:#1c1710;
+    --ink-2:#3b3528;
+    --ink-dim:#6b6350;
+    --line:rgba(184,137,43,.25);
+    --line-soft:rgba(184,137,43,.12);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  html,body{min-height:100%;background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;overflow-x:hidden}
+  body{
+    background:
+      radial-gradient(900px 500px at 80% -10%, rgba(212,175,55,.12), transparent 60%),
+      radial-gradient(700px 500px at -10% 110%, rgba(212,175,55,.08), transparent 60%),
+      linear-gradient(180deg,#fbf8f2 0%, #f6efdf 60%, #fbf8f2 100%);
+  }
+  .serif{font-family:'Cormorant Garamond',serif;letter-spacing:.3px}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+
+  /* ===== Navigation ===== */
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    background:rgba(251,248,242,.82);
+    border-bottom:1px solid var(--line-soft);
+    transition:.3s;
+  }
+  .nav-inner{max-width:1280px;margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand-mark{
+    width:42px;height:42px;border-radius:50%;
+    background:radial-gradient(circle at 40% 35%, #fff, #f5e8c7);
+    border:1px solid var(--gold);display:grid;place-items:center;
+    font-family:'Cormorant Garamond',serif;font-weight:700;font-size:18px;
+    background-image:linear-gradient(180deg,var(--gold-2),var(--gold-soft));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    box-shadow:inset 0 0 20px rgba(184,137,43,.12), 0 4px 14px rgba(184,137,43,.18);
+  }
+  .brand-text{line-height:1.1}
+  .brand-text .n{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;color:var(--ink)}
+  .brand-text .t{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold)}
+  .nav-links{display:flex;gap:28px;align-items:center}
+  .nav-links a{font-size:13px;letter-spacing:.5px;color:var(--ink-2);position:relative;padding:6px 0;transition:.2s}
+  .nav-links a::after{content:"";position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:center;transition:.3s}
+  .nav-links a:hover{color:var(--gold-soft)}
+  .nav-links a:hover::after{transform:scaleX(1)}
+  .nav-cta{display:flex;gap:10px;align-items:center}
+  .lang-toggle{
+    display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:#fff;
+  }
+  .lang-toggle button{padding:7px 14px;font-size:11px;letter-spacing:1.5px;color:var(--ink-dim);transition:.2s}
+  .lang-toggle button.active{background:linear-gradient(180deg,var(--gold-2),var(--gold));color:#fff;font-weight:600}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:999px;
+    font-size:13px;letter-spacing:1px;text-transform:uppercase;font-weight:500;transition:.3s;
+  }
+  .btn-primary{background:linear-gradient(180deg,#2a1f0d,#1c1710);color:#f7e8c0;border:1px solid var(--gold)}
+  .btn-primary:hover{background:linear-gradient(180deg,var(--gold-2),var(--gold-soft));color:#fff;transform:translateY(-2px);box-shadow:0 10px 30px rgba(184,137,43,.35)}
+  .btn-ghost{border:1px solid var(--line);color:var(--ink-2);background:#fff}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold-soft)}
+  .mobile-toggle{display:none;padding:8px;border-radius:8px;border:1px solid var(--line);background:#fff}
+  .mobile-toggle svg{width:20px;height:20px;stroke:var(--ink-2)}
+
+  @media (max-width:980px){
+    .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(251,248,242,.98);backdrop-filter:blur(14px);flex-direction:column;padding:20px 32px;border-bottom:1px solid var(--line);gap:18px}
+    .nav-links.open{display:flex}
+    .mobile-toggle{display:block}
+    .nav-cta .btn{display:none}
+  }
+
+  /* ===== Hero ===== */
+  .hero{
+    position:relative;padding:140px 32px 100px;max-width:1280px;margin:0 auto;
+    display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center;
+  }
+  @media (max-width:980px){.hero{grid-template-columns:1fr;padding:120px 24px 60px;gap:40px;text-align:center}}
+
+  .hero-eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:24px;
+  }
+  .hero-eyebrow::before{content:"";width:40px;height:1px;background:var(--gold)}
+  @media (max-width:980px){.hero-eyebrow{justify-content:center}}
+
+  h1.hero-title{
+    font-family:'Cormorant Garamond',serif;font-weight:500;
+    font-size:clamp(44px,6.8vw,78px);line-height:1;letter-spacing:-1px;color:var(--ink);
+  }
+  h1.hero-title em{
+    font-style:italic;font-weight:500;
+    background:linear-gradient(180deg,var(--gold-2),var(--gold-soft));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero-lead{margin-top:28px;font-size:17px;line-height:1.7;color:var(--ink-2);max-width:520px}
+  @media (max-width:980px){.hero-lead{margin-left:auto;margin-right:auto}}
+  .hero-ctas{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap}
+  @media (max-width:980px){.hero-ctas{justify-content:center}}
+
+  .hero-stats{display:flex;gap:40px;margin-top:56px;padding-top:32px;border-top:1px solid var(--line-soft)}
+  @media (max-width:980px){.hero-stats{justify-content:center}}
+  .stat .n{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:600;color:var(--gold-soft);line-height:1}
+  .stat .l{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-dim);margin-top:6px}
+
+  .hero-visual{position:relative;aspect-ratio:4/5;max-width:520px;margin-left:auto;width:100%}
+  .hero-img{
+    width:100%;height:100%;object-fit:cover;border-radius:4px;
+    box-shadow:0 40px 80px rgba(60,40,10,.22), 0 10px 30px rgba(60,40,10,.12);
+  }
+  .hero-badge{
+    position:absolute;bottom:-20px;left:-20px;background:#fff;padding:20px 26px;
+    border-radius:4px;box-shadow:0 20px 50px rgba(60,40,10,.15);
+    border-left:3px solid var(--gold);max-width:240px;
+  }
+  .hero-badge .sig{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--ink);line-height:1.2}
+  .hero-badge .role{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-top:8px}
+  .hero-frame{
+    position:absolute;inset:-14px;border:1px solid var(--gold);border-radius:4px;z-index:-1;
+    transform:translate(20px,20px);
+  }
+
+  /* ===== Section shared ===== */
+  section{position:relative;padding:100px 32px;max-width:1280px;margin:0 auto}
+  @media (max-width:768px){section{padding:70px 24px}}
+  .section-head{text-align:center;max-width:720px;margin:0 auto 64px}
+  .section-eyebrow{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:inline-block}
+  .section-title{
+    font-family:'Cormorant Garamond',serif;font-weight:500;
+    font-size:clamp(32px,4.5vw,52px);line-height:1.05;color:var(--ink);
+  }
+  .section-title em{font-style:italic;background:linear-gradient(180deg,var(--gold-2),var(--gold-soft));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .section-lead{margin-top:20px;color:var(--ink-2);font-size:16px;line-height:1.7}
+  .ornament{display:flex;align-items:center;justify-content:center;gap:14px;margin:0 auto 24px;color:var(--gold);width:fit-content}
+  .ornament::before,.ornament::after{content:"";height:1px;width:48px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+  .ornament svg{width:16px;height:16px}
+
+  /* ===== About ===== */
+  .about{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+  @media (max-width:980px){.about{grid-template-columns:1fr;gap:40px}}
+  .about-img-wrap{position:relative;aspect-ratio:5/6;max-width:480px}
+  .about-img-wrap img{width:100%;height:100%;object-fit:cover;border-radius:4px;box-shadow:0 30px 60px rgba(60,40,10,.18)}
+  .about-img-wrap::before{
+    content:"";position:absolute;inset:20px -20px -20px 20px;border:1px solid var(--gold);border-radius:4px;z-index:-1;
+  }
+  .about-text h2 em{display:block}
+  .about-points{margin-top:36px;display:grid;gap:22px}
+  .point{display:flex;gap:18px;align-items:flex-start}
+  .point-icon{
+    flex:0 0 48px;width:48px;height:48px;border-radius:50%;
+    background:linear-gradient(180deg,#fff6dc,#f3e5b4);
+    display:grid;place-items:center;border:1px solid var(--line);color:var(--gold-soft);
+  }
+  .point-icon svg{width:22px;height:22px}
+  .point h4{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--ink);margin-bottom:4px}
+  .point p{font-size:14px;line-height:1.6;color:var(--ink-dim)}
+
+  /* ===== Services ===== */
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  @media (max-width:980px){.services-grid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:640px){.services-grid{grid-template-columns:1fr}}
+  .service{
+    background:var(--paper);border:1px solid var(--line-soft);border-radius:6px;
+    overflow:hidden;transition:.4s cubic-bezier(.2,.7,.2,1);position:relative;
+    display:flex;flex-direction:column;
+  }
+  .service:hover{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 30px 60px rgba(184,137,43,.15)}
+  .service-img{aspect-ratio:16/10;overflow:hidden;position:relative;background:var(--bg-2)}
+  .service-img img{width:100%;height:100%;object-fit:cover;transition:.6s}
+  .service:hover .service-img img{transform:scale(1.06)}
+  .service-img::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,transparent 40%,rgba(28,23,16,.55) 100%);
+  }
+  .service-icon-badge{
+    position:absolute;top:16px;left:16px;width:40px;height:40px;border-radius:50%;
+    background:rgba(255,255,255,.95);display:grid;place-items:center;color:var(--gold-soft);
+    backdrop-filter:blur(6px);
+  }
+  .service-icon-badge svg{width:20px;height:20px}
+  .service-body{padding:24px 26px 28px;flex:1;display:flex;flex-direction:column}
+  .service h3{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:var(--ink);margin-bottom:10px}
+  .service p{font-size:14px;line-height:1.65;color:var(--ink-dim);margin-bottom:16px;flex:1}
+  .service-link{
+    font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-soft);
+    display:inline-flex;align-items:center;gap:8px;font-weight:600;
+  }
+  .service-link::after{content:"→";transition:.3s}
+  .service:hover .service-link::after{transform:translateX(4px)}
+
+  /* ===== Process ===== */
+  .process-section{background:linear-gradient(180deg,transparent,rgba(243,236,221,.5),transparent)}
+  .process{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:20px}
+  @media (max-width:980px){.process{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:560px){.process{grid-template-columns:1fr}}
+  .step{text-align:center;padding:32px 20px;position:relative}
+  .step-num{
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-size:72px;font-weight:500;line-height:1;
+    background:linear-gradient(180deg,var(--gold-2),rgba(212,175,55,.25));
+    -webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:14px;
+  }
+  .step h4{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--ink);margin-bottom:10px}
+  .step p{font-size:13.5px;line-height:1.6;color:var(--ink-dim)}
+
+  /* ===== Testimonials ===== */
+  .testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  @media (max-width:980px){.testimonials-grid{grid-template-columns:1fr}}
+  .testimonial{
+    background:var(--paper);border:1px solid var(--line-soft);border-radius:6px;
+    padding:36px 32px;position:relative;
+  }
+  .quote-mark{
+    font-family:'Cormorant Garamond',serif;font-size:100px;line-height:.6;
+    color:var(--gold);opacity:.25;position:absolute;top:24px;left:24px;
+  }
+  .testimonial-stars{color:var(--gold-2);margin-bottom:14px;position:relative;letter-spacing:2px}
+  .testimonial-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;line-height:1.5;color:var(--ink-2);margin-bottom:22px;position:relative}
+  .testimonial-author{display:flex;align-items:center;gap:14px;position:relative}
+  .testimonial-author .avatar{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#f5e8c7,#d4af37);display:grid;place-items:center;color:#fff;font-weight:600;font-family:'Cormorant Garamond',serif;font-size:18px}
+  .testimonial-author .who{font-weight:600;color:var(--ink);font-size:14px}
+  .testimonial-author .what{font-size:11px;letter-spacing:1.5px;color:var(--gold);text-transform:uppercase;margin-top:2px}
+
+  /* ===== Gallery ===== */
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  @media (max-width:980px){.gallery{grid-template-columns:repeat(2,1fr)}}
+  .gallery-item{aspect-ratio:1;overflow:hidden;border-radius:4px;position:relative;cursor:pointer}
+  .gallery-item img{width:100%;height:100%;object-fit:cover;transition:.5s}
+  .gallery-item:hover img{transform:scale(1.08)}
+  .gallery-item::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(135deg,transparent 60%,rgba(184,137,43,.3));
+    opacity:0;transition:.3s;
+  }
+  .gallery-item:hover::after{opacity:1}
+
+  /* ===== Contact ===== */
+  .contact{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:start}
+  @media (max-width:980px){.contact{grid-template-columns:1fr}}
+  .contact-card{
+    background:var(--paper);border:1px solid var(--line);border-radius:6px;
+    padding:44px 40px;box-shadow:0 30px 80px rgba(60,40,10,.1);
+  }
+  @media (max-width:560px){.contact-card{padding:32px 24px}}
+  .contact-info{padding:20px 0}
+  .contact-item{display:flex;gap:18px;align-items:flex-start;margin-bottom:28px}
+  .contact-item .icn{
+    flex:0 0 42px;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);
+    background:#fff;display:grid;place-items:center;color:var(--gold-soft);
+  }
+  .contact-item .icn svg{width:18px;height:18px}
+  .contact-item h4{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+  .contact-item p{color:var(--ink-2);font-size:15px;line-height:1.55}
+  .hours{margin-top:12px;padding-top:24px;border-top:1px solid var(--line-soft)}
+  .hours h4{font-family:'Cormorant Garamond',serif;font-size:22px;margin-bottom:16px}
+  .hour-row{display:flex;justify-content:space-between;padding:8px 0;font-size:14px;color:var(--ink-2);border-bottom:1px dashed var(--line-soft)}
+  .hour-row:last-child{border-bottom:none}
+  .hour-row span:first-child{color:var(--ink-dim)}
+
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
+  @media (max-width:560px){.form-row{grid-template-columns:1fr}}
+  .form-field{position:relative;margin-bottom:16px}
+  .form-field label{display:block;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-soft);margin-bottom:8px;font-weight:500}
+  .form-field input,.form-field textarea,.form-field select{
+    width:100%;background:#fffdf7;border:1px solid var(--line);
+    color:var(--ink);padding:13px 16px;border-radius:6px;font:inherit;font-size:15px;
+    transition:.25s;outline:none;
+  }
+  .form-field textarea{min-height:120px;resize:vertical}
+  .form-field input:focus,.form-field textarea:focus,.form-field select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(184,137,43,.12);background:#fff}
+  .form-submit{width:100%;justify-content:center;padding:15px;margin-top:8px}
+
+  /* ===== Footer ===== */
+  footer{
+    background:linear-gradient(180deg,#1c1710,#0d0a06);color:#c7b991;
+    padding:80px 32px 28px;margin-top:80px;position:relative;
+  }
+  footer::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:1px;
+    background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  }
+  .footer-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px}
+  @media (max-width:980px){.footer-inner{grid-template-columns:1fr 1fr;gap:36px}}
+  @media (max-width:560px){.footer-inner{grid-template-columns:1fr}}
+  .footer-brand .brand-text .n{color:#f5e8c7}
+  .footer-brand p{font-size:14px;line-height:1.7;margin-top:20px;color:#948967;max-width:320px}
+  .footer-col h5{font-family:'Cormorant Garamond',serif;font-size:20px;color:#f5e8c7;margin-bottom:22px;font-weight:600}
+  .footer-col ul{list-style:none;display:grid;gap:12px}
+  .footer-col a{font-size:14px;color:#948967;transition:.2s}
+  .footer-col a:hover{color:var(--gold-2)}
+  .socials{display:flex;gap:12px;margin-top:24px}
+  .socials a{
+    width:40px;height:40px;border-radius:50%;border:1px solid rgba(212,175,55,.25);
+    display:grid;place-items:center;color:#c7b991;transition:.3s;
+  }
+  .socials a:hover{background:var(--gold);color:#fff;border-color:var(--gold);transform:translateY(-3px)}
+  .socials svg{width:16px;height:16px}
+  .footer-bottom{
+    max-width:1280px;margin:60px auto 0;padding-top:28px;border-top:1px solid rgba(212,175,55,.15);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:12px;color:#847a5a;
+  }
+
+  /* ===== Floating WhatsApp ===== */
+  .whatsapp-float{
+    position:fixed;bottom:24px;right:24px;width:60px;height:60px;border-radius:50%;
+    background:#25D366;display:grid;place-items:center;color:#fff;z-index:40;
+    box-shadow:0 10px 30px rgba(37,211,102,.4);transition:.3s;
+  }
+  .whatsapp-float:hover{transform:scale(1.1) translateY(-2px);box-shadow:0 15px 40px rgba(37,211,102,.55)}
+  .whatsapp-float svg{width:30px;height:30px}
+  .whatsapp-float::before{
+    content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid #25D366;
+    animation:pulse 2s ease-out infinite;
+  }
+  @keyframes pulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.4);opacity:0}}
+
+  /* ===== Contact Tabs ===== */
+  .contact-tabs{display:flex;justify-content:center;gap:6px;margin-bottom:40px}
+  .contact-tab{
+    padding:14px 32px;border-radius:999px;font-size:13px;letter-spacing:1px;
+    text-transform:uppercase;font-weight:500;cursor:pointer;transition:.3s;
+    border:1px solid var(--line);background:#fff;color:var(--ink-dim);
+  }
+  .contact-tab:hover{border-color:var(--gold);color:var(--gold-soft)}
+  .contact-tab.active{background:linear-gradient(180deg,#2a1f0d,#1c1710);color:#f7e8c0;border-color:var(--gold)}
+  .tab-pane{display:none;animation:fade .5s ease}
+  .tab-pane.active{display:block}
+  @keyframes tabFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+  /* ===== PQRSF Form ===== */
+  .pqrsf-card{
+    background:var(--paper);border:1px solid var(--line);border-radius:6px;
+    padding:40px clamp(20px,4vw,44px);max-width:880px;margin:0 auto;
+    box-shadow:0 30px 80px rgba(60,40,10,.1);position:relative;overflow:hidden;
+  }
+  .pqrsf-card::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(600px 200px at 50% -40px, rgba(212,175,55,.1), transparent 70%);
+  }
+  .pqrsf-intro{text-align:center;margin-bottom:30px}
+  .pqrsf-intro h3{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--ink);margin-bottom:8px}
+  .pqrsf-intro p{color:var(--ink-dim);font-size:14px;line-height:1.6;max-width:500px;margin:0 auto}
+  .pqrsf-stepbar{display:flex;justify-content:center;gap:10px;margin-bottom:28px}
+  .pqrsf-stepdot{width:36px;height:4px;border-radius:2px;background:rgba(184,137,43,.18);transition:.4s}
+  .pqrsf-stepdot.active{background:linear-gradient(90deg,var(--gold),var(--gold-2));box-shadow:0 0 12px rgba(184,137,43,.4)}
+  .pqrsf-step{display:none;animation:fade .5s ease}
+  .pqrsf-step.active{display:block}
+  .pqrsf-step-title{font-family:'Cormorant Garamond',serif;font-size:26px;text-align:center;margin-bottom:6px;color:var(--ink)}
+  .pqrsf-step-sub{text-align:center;color:var(--ink-dim);font-size:14px;margin-bottom:26px}
+  .pqrsf-cats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  @media (max-width:640px){.pqrsf-cats{grid-template-columns:1fr}}
+  .pqrsf-cat{
+    cursor:pointer;text-align:center;padding:26px 16px;border-radius:18px;
+    border:1px solid var(--line);background:#fffdf7;
+    transition:all .35s cubic-bezier(.2,.7,.2,1);position:relative;overflow:hidden;
+  }
+  .pqrsf-cat:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 16px 40px rgba(184,137,43,.18)}
+  .pqrsf-cat.selected{border-color:var(--gold);background:linear-gradient(180deg,#fff6dc,#fffdf3);box-shadow:0 0 0 1px var(--gold) inset, 0 20px 50px rgba(184,137,43,.18)}
+  .pqrsf-cat .emoji{font-size:40px;display:block;margin-bottom:10px;filter:drop-shadow(0 2px 6px rgba(0,0,0,.12))}
+  .pqrsf-cat .cat-name{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--gold-soft)}
+  .pqrsf-cat .cat-desc{font-size:12px;color:var(--ink-dim);margin-top:6px;line-height:1.4}
+  .pqrsf-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+  @media (max-width:640px){.pqrsf-row{grid-template-columns:1fr}}
+  .pqrsf-field{position:relative;margin-bottom:14px}
+  .pqrsf-field label{display:block;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-soft);margin-bottom:8px;font-weight:500}
+  .pqrsf-field label .opt{color:var(--ink-dim);text-transform:none;letter-spacing:0;font-size:11px;margin-left:6px;font-weight:400}
+  .pqrsf-field input,.pqrsf-field textarea,.pqrsf-field select{
+    width:100%;background:#fffdf7;border:1px solid var(--line);
+    color:var(--ink);padding:13px 16px;border-radius:6px;font:inherit;font-size:15px;
+    transition:.25s;outline:none;
+  }
+  .pqrsf-field textarea{min-height:120px;resize:vertical;font-family:inherit}
+  .pqrsf-field input:focus,.pqrsf-field textarea:focus,.pqrsf-field select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(184,137,43,.12);background:#fff}
+  .pqrsf-field input::placeholder,.pqrsf-field textarea::placeholder{color:#a89b80}
+  .pqrsf-field select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--gold-soft) 50%),linear-gradient(135deg,var(--gold-soft) 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 15px) 50%;background-size:5px 5px;background-repeat:no-repeat;background-color:#fffdf7}
+  .pqrsf-stars{display:flex;justify-content:center;gap:8px;margin:10px 0 6px;direction:rtl}
+  .pqrsf-stars input{display:none}
+  .pqrsf-stars label{font-size:38px;color:#e4d9b9;cursor:pointer;transition:.2s;line-height:1}
+  .pqrsf-stars label:hover,.pqrsf-stars label:hover ~ label,.pqrsf-stars input:checked ~ label{
+    color:var(--gold);text-shadow:0 2px 10px rgba(184,137,43,.4);transform:scale(1.08)
+  }
+  .pqrsf-stars-caption{text-align:center;color:var(--ink-dim);font-size:12px;min-height:18px}
+  .pqrsf-check{display:flex;gap:12px;align-items:flex-start;padding:14px;border:1px dashed var(--line);border-radius:12px;background:#fffdf7;margin-top:6px}
+  .pqrsf-check input{margin-top:3px;accent-color:var(--gold)}
+  .pqrsf-check label{font-size:13px;color:var(--ink-2);line-height:1.55}
+  .pqrsf-check strong{color:var(--gold-soft);font-weight:600}
+  .pqrsf-actions{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+  .pqrsf-success{text-align:center;padding:20px 0}
+  .pqrsf-check-circle{width:110px;height:110px;margin:0 auto 20px;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,.22),transparent 70%);display:grid;place-items:center;position:relative}
+  .pqrsf-check-circle svg{width:60px;height:60px;stroke:var(--gold-soft);stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .pqrsf-check-circle .c-path{stroke-dasharray:100;stroke-dashoffset:100;animation:pqrsfDraw 1s .2s ease forwards}
+  @keyframes pqrsfDraw{to{stroke-dashoffset:0}}
+  .pqrsf-success h2{font-family:'Cormorant Garamond',serif;font-size:36px;color:var(--gold-soft);margin-bottom:10px}
+  .pqrsf-success p{color:var(--ink-2);max-width:440px;margin:0 auto 24px;font-size:15px;line-height:1.6}
+  .pqrsf-err{color:#b23b3b;font-size:12px;margin-top:6px;display:none}
+  .pqrsf-field.invalid input,.pqrsf-field.invalid textarea{border-color:#b23b3b}
+  .pqrsf-field.invalid .pqrsf-err{display:block}
+  .pqrsf-loader{width:18px;height:18px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:sp 1s linear infinite;display:inline-block}
+  @keyframes sp{to{transform:rotate(360deg)}}
+  .pqrsf-qr{margin-top:30px;padding:28px;border:1px dashed var(--line);border-radius:20px;text-align:center;background:#fff}
+  .pqrsf-qr h4{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--gold-soft);margin-bottom:6px}
+  .pqrsf-qr p{color:var(--ink-dim);font-size:13px;margin-bottom:16px}
+  #pqrsf-qrcode{display:inline-block;padding:14px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 30px rgba(60,40,10,.08)}
+  #pqrsf-qrcode img{display:block}
+  .pqrsf-qr-actions{margin-top:14px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .pqrsf-qr-actions button{padding:9px 18px;font-size:12px;letter-spacing:1px}
+
+  /* ===== Reveal animation ===== */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  [hidden]{display:none!important}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand">
+      <div class="brand-mark">XB</div>
+      <div class="brand-text">
+        <div class="n">Dra. Xiomara Bolívar</div>
+        <div class="t" data-i18n="brand.tag">Odontología · Dentistry</div>
+      </div>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#about" data-i18n="nav.about">Nosotros</a>
+      <a href="#services" data-i18n="nav.services">Servicios</a>
+      <a href="#process" data-i18n="nav.process">Proceso</a>
+      <a href="#testimonials" data-i18n="nav.testimonials">Testimonios</a>
+      <a href="#contact" data-i18n="nav.contact">Contacto</a>
+    </div>
+    <div class="nav-cta">
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button data-lang="es" class="active">ES</button>
+        <button data-lang="en">EN</button>
+      </div>
+      <a href="#contact" class="btn btn-primary" data-i18n="nav.book">Agendar</a>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-text reveal">
+    <div class="hero-eyebrow" data-i18n="hero.eyebrow">Odontología de Excelencia</div>
+    <h1 class="hero-title" data-i18n-html="hero.title">Tu voz construye <em>nuestra sonrisa</em>.</h1>
+    <p class="hero-lead" data-i18n="hero.lead">Cuidado dental integral con precisión, calidez y los más altos estándares. Diseñamos sonrisas que reflejan confianza, salud y belleza natural.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn btn-primary" data-i18n="hero.cta1">Reservar consulta</a>
+      <a href="#services" class="btn btn-ghost" data-i18n="hero.cta2">Ver servicios</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="n">15+</div><div class="l" data-i18n="hero.stat1">Años de experiencia</div></div>
+      <div class="stat"><div class="n">2.500+</div><div class="l" data-i18n="hero.stat2">Sonrisas restauradas</div></div>
+      <div class="stat"><div class="n">98%</div><div class="l" data-i18n="hero.stat3">Pacientes satisfechos</div></div>
+    </div>
+  </div>
+  <div class="hero-visual reveal">
+    <div class="hero-frame"></div>
+    <img class="hero-img" src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=900&auto=format&fit=crop&q=80" alt="Modern dental clinic" />
+    <div class="hero-badge">
+      <div class="sig">Dra. Xiomara Bolívar</div>
+      <div class="role" data-i18n="hero.badge">Odontóloga · Directora Clínica</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="about-section" id="about">
+  <div class="about">
+    <div class="about-img-wrap reveal">
+      <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&auto=format&fit=crop&q=80" alt="Dra. Xiomara Bolívar" />
+    </div>
+    <div class="about-text reveal">
+      <div class="section-eyebrow" data-i18n="about.eyebrow">Sobre Nosotros</div>
+      <h2 class="section-title" data-i18n-html="about.title">Una práctica construida sobre <em>confianza y excelencia</em></h2>
+      <p class="section-lead" data-i18n="about.lead">En nuestra clínica combinamos la odontología más avanzada con un trato humano y cercano. Cada sonrisa es única, y cada tratamiento se diseña a la medida de tus necesidades, tu salud y tu estilo de vida.</p>
+      <div class="about-points">
+        <div class="point">
+          <div class="point-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l3 7h7l-5.5 4.5 2 7.5L12 16.5 5.5 21l2-7.5L2 9h7z"/></svg></div>
+          <div><h4 data-i18n="about.p1.h">Tecnología de vanguardia</h4><p data-i18n="about.p1.p">Escáner intraoral 3D, radiografía digital y software de diseño de sonrisa para resultados precisos.</p></div>
+        </div>
+        <div class="point">
+          <div class="point-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          <div><h4 data-i18n="about.p2.h">Atención humana y cálida</h4><p data-i18n="about.p2.p">Escuchamos antes de tratar. Explicamos cada paso para que tomes decisiones informadas y tranquilas.</p></div>
+        </div>
+        <div class="point">
+          <div class="point-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
+          <div><h4 data-i18n="about.p3.h">Bioseguridad certificada</h4><p data-i18n="about.p3.p">Protocolos de esterilización y bioseguridad que cumplen con los más altos estándares internacionales.</p></div>
+        </div>
+        <div class="point">
+          <div class="point-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <div><h4 data-i18n="about.p4.h">Atención bilingüe</h4><p data-i18n="about.p4.p">Brindamos consultas en español e inglés para pacientes locales e internacionales que visitan Colombia.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section id="services">
+  <div class="section-head reveal">
+    <div class="ornament">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8 5.8 21.3l2.4-7.4L2 9.4h7.6z"/></svg>
+    </div>
+    <span class="section-eyebrow" data-i18n="services.eyebrow">Nuestros Servicios</span>
+    <h2 class="section-title" data-i18n-html="services.title">Tratamientos completos para tu <em>sonrisa ideal</em></h2>
+    <p class="section-lead" data-i18n="services.lead">Desde chequeos preventivos hasta rehabilitación total. Todo bajo un mismo techo, con tecnología y experiencia que marcan la diferencia.</p>
+  </div>
+
+  <div class="services-grid">
+    <!-- Odontología general -->
+    <article class="service reveal">
+      <div class="service-img">
+        <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=800&auto=format&fit=crop&q=80" alt="" />
+        <div class="service-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C8 2 5 4 5 8c0 3 1 5 2 8s1 6 3 6 2-3 2-5 0-3 0-3 0 3 0 5 0 5 2 5 2-3 3-6 2-5 2-8c0-4-3-6-7-6z"/></svg></div>
+      </div>
+      <div class="service-body">
+        <h3 data-i18n="svc.general.h">Odontología General</h3>
+        <p data-i18n="svc.general.p">Chequeos, limpiezas profesionales, sellantes, flúor y prevención para mantener tu salud bucal a largo plazo.</p>
+        <a href="#contact" class="service-link" data-i18n="svc.cta">Consultar</a>
+      </div>
+    </article>
+
+    <!-- Ortodoncia -->
+    <article class="service reveal">
+      <div class="service-img">
+        <img src="https://images.unsplash.com/photo-1643297654416-05795d62e39c?w=800&auto=format&fit=crop&q=80" alt="" />
+        <div class="service-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h16M4 12h16M4 16h16"/><path d="M8 4v16M16 4v16"/></svg></div>
+      </div>
+      <div class="service-body">
+        <h3 data-i18n="svc.ortho.h">Ortodoncia</h3>
+        <p data-i18n="svc.ortho.p">Brackets metálicos, estéticos, autoligado y alineadores invisibles tipo Invisalign para corregir tu mordida y alineación.</p>
+        <a href="#contact" class="service-link" data-i18n="svc.cta">Consultar</a>
+      </div>
+    </article>
+
+    <!-- Estética / Diseño de sonrisa -->
+    <article class="service reveal">
+      <div class="service-img">
+        <img src="https://images.unsplash.com/photo-1581585504920-c2d5a25e7d5f?w=800&auto=format&fit=crop&q=80" alt="" />
+        <div class="service-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l3 7h7l-5.5 4.5 2 7.5L12 16.5 5.5 21l2-7.5L2 9h7z"/></svg></div>
+      </div>
+      <div class="service-body">
+        <h3 data-i18n="svc.smile.h">Diseño de Sonrisa</h3>
+        <p data-i18n="svc.smile.p">Diseño digital personalizado con carillas de porcelana, composite y proporciones faciales para una sonrisa natural y armónica.</p>
+        <a href="#contact" class="service-link" data-i18n="svc.cta">Consultar</a>
+      </div>
+    </article>
+
+    <!-- Blanqueamiento -->
+    <article class="service reveal">
+      <div class="service-img">
+        <img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=800&auto=format&fit=crop&q=80" alt="" />
+        <div class="service-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></div>
+      </div>
+      <div class="service-body">
+        <h3 data-i18n="svc.white.h">Blanqueamiento Dental</h3>
+        <p data-i18n="svc.white.p">Blanqueamiento profesional en consultorio y ambulatorio con geles seguros para recuperar tu brillo natural.</p>
+        <a href="#contact" class="service-link" data-i18n="svc.cta">Consultar</a>
+      </div>
+    </article>
+
+    <!-- Implantes -->
+    <article class="service reveal">
+      <div class="service-img">
+        <img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=800&auto=format&fit=crop&q=80" alt="" />
+        <div class="service-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M8 6h8M7 10h10M8 14h8M9 18h6"/></svg></div>
+      </div>
+      <div class="service-body">
+        <h3 data-i18n="svc.implants.h">Implantes Dentales</h3>
+        <p data-i18n="svc.implants.p">Reemplazo de dientes perdidos con implantes de titanio de última generación. Unitarios, múltiples y rehabilitación total.</p>
+        <a href="#contact" class="service-link" data-i18n="svc.cta">Consultar</a>
+      </div>
+    </article>
+
+    <!-- Coronas y carillas -->
+    <article class="service reveal">
+      <div class="service-img">
+        <img src="https://images.unsplash.com/photo-1588776813677-77aaf5595b83?w=800&auto=format&fit=crop&q=80" alt="" />
+        <div class="service-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10l3-6h12l3 6-9 11z"/></svg></div>
+      </div>
+      <div class="service-body">
+        <h3 data-i18n="svc.crowns.h">Coronas y Carillas</h3>
+        <p data-i18n="svc.crowns.p">Coronas de porcelana, zirconio y e-max. Carillas estéticas para transformar forma, color y alineación de tus dientes.</p>
+        <a href="#contact" class="service-link" data-i18n="svc.cta">Consultar</a>
+      </div>
+    </article>
+
+    <!-- Endodoncia -->
+    <article class="service reveal">
+      <div class="service-img">
+        <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=800&auto=format&fit=crop&q=80" alt="" />
+        <div class="service-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M6 8c0 4 3 6 6 6s6-2 6-6"/></svg></div>
+      </div>
+      <div class="service-body">
+        <h3 data-i18n="svc.endo.h">Endodoncia</h3>
+        <p data-i18n="svc.endo.p">Tratamiento de conductos con microscopio y rotatorios de última generación. Conservamos tu diente natural, sin dolor.</p>
+        <a href="#contact" class="service-link" data-i18n="svc.cta">Consultar</a>
+      </div>
+    </article>
+
+    <!-- Periodoncia -->
+    <article class="service reveal">
+      <div class="service-img">
+        <img src="https://images.unsplash.com/photo-1590424693420-fc227d33e04e?w=800&auto=format&fit=crop&q=80" alt="" />
+        <div class="service-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-4 9-8 10-4-1-8-5-8-10V6z"/></svg></div>
+      </div>
+      <div class="service-body">
+        <h3 data-i18n="svc.perio.h">Periodoncia</h3>
+        <p data-i18n="svc.perio.p">Prevención y tratamiento de enfermedades de encías. Profilaxis, curetajes, cirugía periodontal y regeneración tisular.</p>
+        <a href="#contact" class="service-link" data-i18n="svc.cta">Consultar</a>
+      </div>
+    </article>
+
+    <!-- Cirugía oral / Extracciones -->
+    <article class="service reveal">
+      <div class="service-img">
+        <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&auto=format&fit=crop&q=80" alt="" />
+        <div class="service-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2l8 8-10 10H4v-8z"/></svg></div>
+      </div>
+      <div class="service-body">
+        <h3 data-i18n="svc.surgery.h">Cirugía Oral y Extracciones</h3>
+        <p data-i18n="svc.surgery.p">Extracciones simples y quirúrgicas, cordales, frenillos y cirugías menores con anestesia y sedación consciente.</p>
+        <a href="#contact" class="service-link" data-i18n="svc.cta">Consultar</a>
+      </div>
+    </article>
+
+    <!-- Odontopediatría -->
+    <article class="service reveal">
+      <div class="service-img">
+        <img src="https://images.unsplash.com/photo-1626716493137-b67fe9501e76?w=800&auto=format&fit=crop&q=80" alt="" />
+        <div class="service-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="10" r="4"/><path d="M6 21c0-4 3-7 6-7s6 3 6 7"/></svg></div>
+      </div>
+      <div class="service-body">
+        <h3 data-i18n="svc.kids.h">Odontopediatría</h3>
+        <p data-i18n="svc.kids.p">Atención especializada y cariñosa para niños. Prevención, sellantes, ortodoncia interceptiva y manejo del comportamiento.</p>
+        <a href="#contact" class="service-link" data-i18n="svc.cta">Consultar</a>
+      </div>
+    </article>
+
+    <!-- Prótesis / Rehabilitación -->
+    <article class="service reveal">
+      <div class="service-img">
+        <img src="https://images.unsplash.com/photo-1571772805064-207c8435df79?w=800&auto=format&fit=crop&q=80" alt="" />
+        <div class="service-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h18M3 6h18M3 18h18"/></svg></div>
+      </div>
+      <div class="service-body">
+        <h3 data-i18n="svc.prost.h">Prótesis y Rehabilitación Oral</h3>
+        <p data-i18n="svc.prost.p">Prótesis fijas, removibles y totales. Rehabilitación oral completa con enfoque estético y funcional.</p>
+        <a href="#contact" class="service-link" data-i18n="svc.cta">Consultar</a>
+      </div>
+    </article>
+
+    <!-- ATM / Bruxismo -->
+    <article class="service reveal">
+      <div class="service-img">
+        <img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?w=800&auto=format&fit=crop&q=80" alt="" />
+        <div class="service-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a6 6 0 0 0-6 6c0 3 2 5 2 9s1 5 4 5 4-1 4-5 2-6 2-9a6 6 0 0 0-6-6z"/></svg></div>
+      </div>
+      <div class="service-body">
+        <h3 data-i18n="svc.tmj.h">ATM y Bruxismo</h3>
+        <p data-i18n="svc.tmj.p">Diagnóstico y tratamiento de trastornos de la articulación temporomandibular, dolor orofacial y placas para bruxismo.</p>
+        <a href="#contact" class="service-link" data-i18n="svc.cta">Consultar</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="process-section" id="process">
+  <div class="section-head reveal">
+    <span class="section-eyebrow" data-i18n="process.eyebrow">Tu Experiencia</span>
+    <h2 class="section-title" data-i18n-html="process.title">Un camino <em>claro y cuidado</em> hacia tu sonrisa</h2>
+  </div>
+  <div class="process">
+    <div class="step reveal">
+      <div class="step-num">01</div>
+      <h4 data-i18n="process.s1.h">Valoración inicial</h4>
+      <p data-i18n="process.s1.p">Evaluación completa, radiografías digitales y escucha activa de tus objetivos.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">02</div>
+      <h4 data-i18n="process.s2.h">Plan personalizado</h4>
+      <p data-i18n="process.s2.p">Diseñamos tu tratamiento con tiempos, opciones y presupuesto transparente.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">03</div>
+      <h4 data-i18n="process.s3.h">Tratamiento</h4>
+      <p data-i18n="process.s3.p">Ejecutamos cada fase con precisión, tecnología y tu comodidad como prioridad.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">04</div>
+      <h4 data-i18n="process.s4.h">Seguimiento</h4>
+      <p data-i18n="process.s4.p">Controles periódicos y cuidado continuo para que tu sonrisa dure toda la vida.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section id="testimonials">
+  <div class="section-head reveal">
+    <span class="section-eyebrow" data-i18n="test.eyebrow">Testimonios</span>
+    <h2 class="section-title" data-i18n-html="test.title">Lo que dicen <em>nuestros pacientes</em></h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial reveal">
+      <div class="quote-mark">"</div>
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text" data-i18n="test.t1">Llegué con miedo al dentista y salí enamorada del resultado. La doctora es meticulosa y el equipo es increíble. Mi sonrisa cambió por completo.</p>
+      <div class="testimonial-author">
+        <div class="avatar">MC</div>
+        <div><div class="who">María Camila R.</div><div class="what" data-i18n="test.t1.w">Diseño de sonrisa</div></div>
+      </div>
+    </div>
+    <div class="testimonial reveal">
+      <div class="quote-mark">"</div>
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text" data-i18n="test.t2">Came from the US for treatment and couldn't be happier. Top-tier care, bilingual attention, and a level of detail that rivals any clinic I've been to.</p>
+      <div class="testimonial-author">
+        <div class="avatar">JT</div>
+        <div><div class="who">James T.</div><div class="what" data-i18n="test.t2.w">Dental Implants</div></div>
+      </div>
+    </div>
+    <div class="testimonial reveal">
+      <div class="quote-mark">"</div>
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text" data-i18n="test.t3">Los brackets invisibles me cambiaron la vida. Proceso sin dolor, resultados espectaculares y una atención humana que no se encuentra fácil.</p>
+      <div class="testimonial-author">
+        <div class="avatar">AG</div>
+        <div><div class="who">Andrés G.</div><div class="what" data-i18n="test.t3.w">Ortodoncia invisible</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section id="gallery">
+  <div class="section-head reveal">
+    <span class="section-eyebrow" data-i18n="gallery.eyebrow">Galería</span>
+    <h2 class="section-title" data-i18n-html="gallery.title">Antes & <em>después</em></h2>
+    <p class="section-lead" data-i18n="gallery.lead">Resultados reales de pacientes reales. (Imágenes temporales — se reemplazarán con casos de la clínica).</p>
+  </div>
+  <div class="gallery">
+    <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1581585504920-c2d5a25e7d5f?w=600&auto=format&fit=crop&q=80" alt=""></div>
+    <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&auto=format&fit=crop&q=80" alt=""></div>
+    <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600&auto=format&fit=crop&q=80" alt=""></div>
+    <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1588776813677-77aaf5595b83?w=600&auto=format&fit=crop&q=80" alt=""></div>
+    <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=600&auto=format&fit=crop&q=80" alt=""></div>
+    <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=600&auto=format&fit=crop&q=80" alt=""></div>
+    <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1571772805064-207c8435df79?w=600&auto=format&fit=crop&q=80" alt=""></div>
+    <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1643297654416-05795d62e39c?w=600&auto=format&fit=crop&q=80" alt=""></div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+  <div class="section-head reveal">
+    <span class="section-eyebrow" data-i18n="contact.eyebrow">Contacto</span>
+    <h2 class="section-title" data-i18n-html="contact.title">Agenda tu <em>consulta</em></h2>
+    <p class="section-lead" data-i18n="contact.lead">Cuéntanos qué necesitas y te responderemos en menos de 24 horas.</p>
+  </div>
+
+  <!-- Tabs -->
+  <div class="contact-tabs reveal">
+    <button class="contact-tab active" data-tab="booking" data-i18n="tab.booking">Agendar Cita</button>
+    <button class="contact-tab" data-tab="pqrsf" data-i18n="tab.pqrsf">Tu Opinión</button>
+  </div>
+
+  <!-- TAB 1: Booking -->
+  <div class="tab-pane active" id="tab-booking">
+    <div class="contact">
+      <div class="contact-card reveal">
+        <form id="contactForm">
+          <div class="form-row">
+            <div class="form-field">
+              <label data-i18n="form.name">Nombre completo</label>
+              <input type="text" name="name" required>
+            </div>
+            <div class="form-field">
+              <label data-i18n="form.phone">Teléfono / WhatsApp</label>
+              <input type="tel" name="phone" required>
+            </div>
+          </div>
+          <div class="form-field">
+            <label data-i18n="form.email">Correo electrónico</label>
+            <input type="email" name="email" required>
+          </div>
+          <div class="form-field">
+            <label data-i18n="form.service">Servicio de interés</label>
+            <select name="service">
+              <option data-i18n="form.opt.choose">Elige un servicio…</option>
+              <option data-i18n="svc.general.h">Odontología General</option>
+              <option data-i18n="svc.ortho.h">Ortodoncia</option>
+              <option data-i18n="svc.smile.h">Diseño de Sonrisa</option>
+              <option data-i18n="svc.white.h">Blanqueamiento Dental</option>
+              <option data-i18n="svc.implants.h">Implantes Dentales</option>
+              <option data-i18n="svc.crowns.h">Coronas y Carillas</option>
+              <option data-i18n="svc.endo.h">Endodoncia</option>
+              <option data-i18n="svc.perio.h">Periodoncia</option>
+              <option data-i18n="svc.surgery.h">Cirugía Oral y Extracciones</option>
+              <option data-i18n="svc.kids.h">Odontopediatría</option>
+              <option data-i18n="svc.prost.h">Prótesis y Rehabilitación</option>
+              <option data-i18n="svc.tmj.h">ATM y Bruxismo</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label data-i18n="form.msg">Mensaje</label>
+            <textarea name="message" data-i18n-attr="placeholder|form.msg.ph" placeholder="Cuéntanos un poco sobre lo que buscas…"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary form-submit" data-i18n="form.submit">Enviar solicitud</button>
+        </form>
+      </div>
+
+      <div class="contact-info reveal">
+        <div class="contact-item">
+          <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><h4 data-i18n="contact.addr">Dirección</h4><p data-i18n="contact.addr.v">Av. Circunvalar, Edificio Portal de los Alpes<br/>Local 104, Pereira, Risaralda</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg></div>
+          <div><h4 data-i18n="contact.tel">Teléfono</h4><p>+57 312 725 0316<br/>Pereira, Risaralda</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg></div>
+          <div><h4>Email</h4><p>contacto@xiomarabolivar.com</p></div>
+        </div>
+        <div class="hours">
+          <h4 data-i18n="contact.hours">Horario de atención</h4>
+          <div class="hour-row"><span data-i18n="contact.mon">Lunes – Viernes</span><span>8:00 AM – 6:00 PM</span></div>
+          <div class="hour-row"><span data-i18n="contact.sat">Sábado</span><span>9:00 AM – 2:00 PM</span></div>
+          <div class="hour-row"><span data-i18n="contact.sun">Domingo</span><span data-i18n="contact.closed">Cerrado</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 2: PQRSF -->
+  <div class="tab-pane" id="tab-pqrsf">
+    <div class="pqrsf-card reveal">
+      <div class="pqrsf-intro">
+        <h3 data-i18n="pqrsf.title">Quejas · Sugerencias · Felicitaciones</h3>
+        <p data-i18n="pqrsf.lead">Tu opinión es el ingrediente más valioso de nuestra atención. Cuéntanos cómo fue tu experiencia — con total confianza y, si lo prefieres, de forma anónima.</p>
+      </div>
+
+      <div class="pqrsf-stepbar">
+        <div class="pqrsf-stepdot active" data-pdot="1"></div>
+        <div class="pqrsf-stepdot" data-pdot="2"></div>
+        <div class="pqrsf-stepdot" data-pdot="3"></div>
+      </div>
+
+      <form id="pqrsfForm" novalidate>
+        <input type="hidden" name="access_key" value="REEMPLAZAR_CON_TU_ACCESS_KEY_DE_WEB3FORMS">
+        <input type="hidden" name="subject" value="Nuevo mensaje - Formulario Dra. Xiomara Bolívar">
+        <input type="hidden" name="from_name" value="Formulario PQRSF Dra. Xiomara">
+        <input type="hidden" name="redirect" value="false">
+        <input type="checkbox" name="botcheck" style="display:none">
+
+        <!-- Step 1: Category -->
+        <div class="pqrsf-step active" data-pstep="1">
+          <h2 class="pqrsf-step-title" data-i18n="pqrsf.s1.title">¿Qué deseas compartir hoy?</h2>
+          <p class="pqrsf-step-sub" data-i18n="pqrsf.s1.sub">Elige la opción que mejor describa tu mensaje</p>
+          <div class="pqrsf-cats">
+            <div class="pqrsf-cat" data-pcat="Felicitación">
+              <span class="emoji">🌟</span>
+              <div class="cat-name" data-i18n="pqrsf.cat.praise">Felicitación</div>
+              <div class="cat-desc" data-i18n="pqrsf.cat.praise.d">Nos alegra saber que te atendimos bien</div>
+            </div>
+            <div class="pqrsf-cat" data-pcat="Sugerencia">
+              <span class="emoji">💡</span>
+              <div class="cat-name" data-i18n="pqrsf.cat.suggest">Sugerencia</div>
+              <div class="cat-desc" data-i18n="pqrsf.cat.suggest.d">Ayúdanos a mejorar con tu idea</div>
+            </div>
+            <div class="pqrsf-cat" data-pcat="Queja">
+              <span class="emoji">📣</span>
+              <div class="cat-name" data-i18n="pqrsf.cat.complaint">Queja</div>
+              <div class="cat-desc" data-i18n="pqrsf.cat.complaint.d">Cuéntanos qué salió mal</div>
+            </div>
+          </div>
+          <input type="hidden" name="tipo" id="pqrsf-tipo" required>
+          <div class="pqrsf-actions" style="justify-content:flex-end">
+            <button type="button" class="btn btn-primary" id="pqrsf-toStep2" disabled data-i18n="pqrsf.continue">Continuar →</button>
+          </div>
+        </div>
+
+        <!-- Step 2: Rating + Details -->
+        <div class="pqrsf-step" data-pstep="2">
+          <h2 class="pqrsf-step-title" data-i18n="pqrsf.s2.title">Cuéntanos tu experiencia</h2>
+          <p class="pqrsf-step-sub" data-i18n="pqrsf.s2.sub">¿Cómo calificarías tu visita?</p>
+
+          <div class="pqrsf-stars">
+            <input type="radio" id="ps5" name="calificacion" value="5 estrellas"><label for="ps5">★</label>
+            <input type="radio" id="ps4" name="calificacion" value="4 estrellas"><label for="ps4">★</label>
+            <input type="radio" id="ps3" name="calificacion" value="3 estrellas"><label for="ps3">★</label>
+            <input type="radio" id="ps2" name="calificacion" value="2 estrellas"><label for="ps2">★</label>
+            <input type="radio" id="ps1" name="calificacion" value="1 estrella"><label for="ps1">★</label>
+          </div>
+          <div class="pqrsf-stars-caption" id="pqrsf-starsCaption" data-i18n="pqrsf.stars.tap">Toca una estrella</div>
+
+          <div class="pqrsf-row" style="margin-top:18px">
+            <div class="pqrsf-field">
+              <label data-i18n="pqrsf.date">Fecha de la visita <span class="opt" data-i18n="pqrsf.optional">(opcional)</span></label>
+              <input type="date" name="fecha_visita">
+            </div>
+            <div class="pqrsf-field">
+              <label data-i18n="pqrsf.dentist">Odontólogo(a) que te atendió <span class="opt" data-i18n="pqrsf.optional">(opcional)</span></label>
+              <select name="odontologo">
+                <option value="" data-i18n="pqrsf.select">— Selecciona —</option>
+                <option>Dra. Xiomara Bolívar</option>
+                <option data-i18n="pqrsf.other">Otro miembro del equipo</option>
+                <option data-i18n="pqrsf.dontremember">No recuerdo</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="pqrsf-field">
+            <label data-i18n="pqrsf.message">Tu mensaje</label>
+            <textarea name="mensaje" id="pqrsf-mensaje" data-i18n-attr="placeholder|pqrsf.message.ph" placeholder="Escríbenos con total libertad. Cada palabra cuenta." required></textarea>
+            <div class="pqrsf-err" data-i18n="pqrsf.msg.err">Por favor cuéntanos brevemente tu experiencia.</div>
+          </div>
+
+          <div class="pqrsf-actions">
+            <button type="button" class="btn btn-ghost" data-pback data-i18n="pqrsf.back">← Volver</button>
+            <button type="button" class="btn btn-primary" id="pqrsf-toStep3" data-i18n="pqrsf.continue">Continuar →</button>
+          </div>
+        </div>
+
+        <!-- Step 3: Contact + consent -->
+        <div class="pqrsf-step" data-pstep="3">
+          <h2 class="pqrsf-step-title" data-i18n="pqrsf.s3.title">Un último detalle</h2>
+          <p class="pqrsf-step-sub" data-i18n="pqrsf.s3.sub">Si deseas respuesta, déjanos tus datos. Puedes omitirlos para enviar de forma anónima.</p>
+
+          <div class="pqrsf-row">
+            <div class="pqrsf-field">
+              <label data-i18n="pqrsf.fullname">Nombre completo <span class="opt" data-i18n="pqrsf.optional">(opcional)</span></label>
+              <input type="text" name="nombre" data-i18n-attr="placeholder|pqrsf.name.ph" placeholder="Ej. María Gómez">
+            </div>
+            <div class="pqrsf-field">
+              <label data-i18n="pqrsf.cedula">Cédula <span class="opt" data-i18n="pqrsf.optional">(opcional)</span></label>
+              <input type="text" name="cedula" inputmode="numeric" placeholder="Ej. 1.234.567.890">
+            </div>
+          </div>
+
+          <div class="pqrsf-row">
+            <div class="pqrsf-field">
+              <label data-i18n="pqrsf.email">Correo electrónico <span class="opt" data-i18n="pqrsf.optional">(opcional)</span></label>
+              <input type="email" name="email" placeholder="tucorreo@ejemplo.com">
+            </div>
+            <div class="pqrsf-field">
+              <label data-i18n="pqrsf.phone">Teléfono / WhatsApp <span class="opt" data-i18n="pqrsf.optional">(opcional)</span></label>
+              <input type="tel" name="telefono" placeholder="Ej. 300 123 4567">
+            </div>
+          </div>
+
+          <div class="pqrsf-check">
+            <input type="checkbox" id="pqrsf-consent" name="consentimiento" value="Aceptado" required>
+            <label for="pqrsf-consent" data-i18n-html="pqrsf.consent">
+              Acepto el <strong>tratamiento de mis datos personales</strong> conforme a la Ley 1581 de 2012 y la política de privacidad de la Dra. Xiomara Bolívar Odontología, con la finalidad de gestionar esta petición, queja, reclamo, sugerencia o felicitación. Mis datos no serán compartidos con terceros sin mi autorización.
+            </label>
+          </div>
+          <div class="pqrsf-err" id="pqrsf-consentErr" data-i18n="pqrsf.consent.err">Debes aceptar el tratamiento de datos para continuar.</div>
+
+          <div class="pqrsf-actions">
+            <button type="button" class="btn btn-ghost" data-pback data-i18n="pqrsf.back">← Volver</button>
+            <button type="submit" class="btn btn-primary" id="pqrsf-submitBtn">
+              <span id="pqrsf-submitText" data-i18n="pqrsf.submit">Enviar mensaje ✨</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Success -->
+        <div class="pqrsf-step" data-pstep="4">
+          <div class="pqrsf-success">
+            <div class="pqrsf-check-circle">
+              <svg viewBox="0 0 52 52"><path class="c-path" d="M14 27l8 8 16-18"/></svg>
+            </div>
+            <h2 data-i18n="pqrsf.thanks">¡Gracias de corazón!</h2>
+            <p data-i18n="pqrsf.thanks.p">Hemos recibido tu mensaje. Cada palabra nos ayuda a cuidar mejor tu sonrisa. Si dejaste tus datos, te contactaremos muy pronto.</p>
+            <button type="button" class="btn btn-ghost" onclick="resetPqrsf()" data-i18n="pqrsf.another">Enviar otro mensaje</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- QR for PQRSF -->
+    <div class="pqrsf-qr reveal">
+      <h4 data-i18n="pqrsf.qr.title">Comparte este formulario</h4>
+      <p data-i18n="pqrsf.qr.sub">Escanea o imprime el código QR para que tus pacientes accedan fácilmente</p>
+      <div id="pqrsf-qrcode"></div>
+      <div class="pqrsf-qr-actions">
+        <button class="btn btn-ghost" onclick="downloadPqrsfQR()" data-i18n="pqrsf.qr.download">⬇ Descargar QR</button>
+        <button class="btn btn-ghost" onclick="window.print()" data-i18n="pqrsf.qr.print">🖨 Imprimir</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="#top" class="brand">
+        <div class="brand-mark">XB</div>
+        <div class="brand-text"><div class="n">Dra. Xiomara Bolívar</div><div class="t" data-i18n="brand.tag">Odontología · Dentistry</div></div>
+      </a>
+      <p data-i18n="footer.about">Odontología integral con precisión, calidez y los más altos estándares internacionales. Tu sonrisa, nuestra vocación.</p>
+      <div class="socials">
+        <a href="https://www.instagram.com/dra.xiomarab/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7h-2.5v-2.9h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg></a>
+        <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1s-.5-.2-.7.1l-1 1.2c-.2.2-.4.3-.7.1a8 8 0 0 1-2.4-1.5 9 9 0 0 1-1.6-2c-.2-.3 0-.4.1-.5l.4-.5c.1-.1.2-.3.3-.4 0-.2 0-.3 0-.4l-.9-2.2c-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4a3 3 0 0 0-.9 2.2c0 1.3 1 2.6 1.1 2.8.1.2 1.9 3 4.7 4.2 1.6.7 2.3.8 3.1.6.5-.1 1.6-.7 1.8-1.3s.2-1.2.2-1.3l-.4-.2zM12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5 data-i18n="footer.nav">Navegación</h5>
+      <ul>
+        <li><a href="#about" data-i18n="nav.about">Nosotros</a></li>
+        <li><a href="#services" data-i18n="nav.services">Servicios</a></li>
+        <li><a href="#process" data-i18n="nav.process">Proceso</a></li>
+        <li><a href="#testimonials" data-i18n="nav.testimonials">Testimonios</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Contacto</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5 data-i18n="footer.svc">Servicios</h5>
+      <ul>
+        <li><a href="#services" data-i18n="svc.ortho.h">Ortodoncia</a></li>
+        <li><a href="#services" data-i18n="svc.implants.h">Implantes</a></li>
+        <li><a href="#services" data-i18n="svc.smile.h">Diseño de Sonrisa</a></li>
+        <li><a href="#services" data-i18n="svc.white.h">Blanqueamiento</a></li>
+        <li><a href="#services" data-i18n="svc.crowns.h">Coronas y Carillas</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5 data-i18n="footer.contact">Contacto</h5>
+      <ul>
+        <li><span data-i18n="contact.addr.v">Av. Circunvalar, Ed. Portal de los Alpes, L-104, Pereira</span></li>
+        <li>+57 312 725 0316</li>
+        <li>contacto@xiomarabolivar.com</li>
+        <li><span data-i18n="contact.mon">Lunes – Viernes</span>: 8–6</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div data-i18n="footer.rights">© 2026 Dra. Xiomara Bolívar. Todos los derechos reservados.</div>
+    <div><a href="#" data-i18n="footer.privacy">Política de privacidad</a> · <a href="#" data-i18n="footer.terms">Términos</a></div>
+  </div>
+</footer>
+
+<a href="https://wa.me/573127250316" class="whatsapp-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1s-.5-.2-.7.1l-1 1.2c-.2.2-.4.3-.7.1a8 8 0 0 1-2.4-1.5 9 9 0 0 1-1.6-2c-.2-.3 0-.4.1-.5l.4-.5c.1-.1.2-.3.3-.4 0-.2 0-.3 0-.4l-.9-2.2c-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4a3 3 0 0 0-.9 2.2c0 1.3 1 2.6 1.1 2.8.1.2 1.9 3 4.7 4.2 1.6.7 2.3.8 3.1.6.5-.1 1.6-.7 1.8-1.3s.2-1.2.2-1.3l-.4-.2zM12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+</a>
+
+<script>
+/* ===== i18n ===== */
+const I18N = {
+  es: {
+    "meta.title":"Dra. Xiomara Bolívar · Odontología de Excelencia",
+    "meta.desc":"Dra. Xiomara Bolívar — Odontología integral de excelencia. Ortodoncia, implantes, diseño de sonrisa, estética dental y más.",
+    "brand.tag":"Odontología · Dentistry",
+    "nav.about":"Nosotros","nav.services":"Servicios","nav.process":"Proceso","nav.testimonials":"Testimonios","nav.contact":"Contacto","nav.book":"Agendar",
+    "hero.eyebrow":"Odontología de Excelencia",
+    "hero.title":"Tu voz construye <em>nuestra sonrisa</em>.",
+    "hero.lead":"Cuidado dental integral con precisión, calidez y los más altos estándares. Diseñamos sonrisas que reflejan confianza, salud y belleza natural.",
+    "hero.cta1":"Reservar consulta","hero.cta2":"Ver servicios",
+    "hero.stat1":"Años de experiencia","hero.stat2":"Sonrisas restauradas","hero.stat3":"Pacientes satisfechos",
+    "hero.badge":"Odontóloga · Directora Clínica",
+    "about.eyebrow":"Sobre Nosotros",
+    "about.title":"Una práctica construida sobre <em>confianza y excelencia</em>",
+    "about.lead":"En nuestra clínica combinamos la odontología más avanzada con un trato humano y cercano. Cada sonrisa es única, y cada tratamiento se diseña a la medida de tus necesidades, tu salud y tu estilo de vida.",
+    "about.p1.h":"Tecnología de vanguardia","about.p1.p":"Escáner intraoral 3D, radiografía digital y software de diseño de sonrisa para resultados precisos.",
+    "about.p2.h":"Atención humana y cálida","about.p2.p":"Escuchamos antes de tratar. Explicamos cada paso para que tomes decisiones informadas y tranquilas.",
+    "about.p3.h":"Bioseguridad certificada","about.p3.p":"Protocolos de esterilización y bioseguridad que cumplen con los más altos estándares internacionales.",
+    "about.p4.h":"Atención bilingüe","about.p4.p":"Brindamos consultas en español e inglés para pacientes locales e internacionales que visitan Colombia.",
+    "services.eyebrow":"Nuestros Servicios",
+    "services.title":"Tratamientos completos para tu <em>sonrisa ideal</em>",
+    "services.lead":"Desde chequeos preventivos hasta rehabilitación total. Todo bajo un mismo techo, con tecnología y experiencia que marcan la diferencia.",
+    "svc.cta":"Consultar",
+    "svc.general.h":"Odontología General","svc.general.p":"Chequeos, limpiezas profesionales, sellantes, flúor y prevención para mantener tu salud bucal a largo plazo.",
+    "svc.ortho.h":"Ortodoncia","svc.ortho.p":"Brackets metálicos, estéticos, autoligado y alineadores invisibles tipo Invisalign para corregir tu mordida y alineación.",
+    "svc.smile.h":"Diseño de Sonrisa","svc.smile.p":"Diseño digital personalizado con carillas de porcelana, composite y proporciones faciales para una sonrisa natural y armónica.",
+    "svc.white.h":"Blanqueamiento Dental","svc.white.p":"Blanqueamiento profesional en consultorio y ambulatorio con geles seguros para recuperar tu brillo natural.",
+    "svc.implants.h":"Implantes Dentales","svc.implants.p":"Reemplazo de dientes perdidos con implantes de titanio de última generación. Unitarios, múltiples y rehabilitación total.",
+    "svc.crowns.h":"Coronas y Carillas","svc.crowns.p":"Coronas de porcelana, zirconio y e-max. Carillas estéticas para transformar forma, color y alineación de tus dientes.",
+    "svc.endo.h":"Endodoncia","svc.endo.p":"Tratamiento de conductos con microscopio y rotatorios de última generación. Conservamos tu diente natural, sin dolor.",
+    "svc.perio.h":"Periodoncia","svc.perio.p":"Prevención y tratamiento de enfermedades de encías. Profilaxis, curetajes, cirugía periodontal y regeneración tisular.",
+    "svc.surgery.h":"Cirugía Oral y Extracciones","svc.surgery.p":"Extracciones simples y quirúrgicas, cordales, frenillos y cirugías menores con anestesia y sedación consciente.",
+    "svc.kids.h":"Odontopediatría","svc.kids.p":"Atención especializada y cariñosa para niños. Prevención, sellantes, ortodoncia interceptiva y manejo del comportamiento.",
+    "svc.prost.h":"Prótesis y Rehabilitación Oral","svc.prost.p":"Prótesis fijas, removibles y totales. Rehabilitación oral completa con enfoque estético y funcional.",
+    "svc.tmj.h":"ATM y Bruxismo","svc.tmj.p":"Diagnóstico y tratamiento de trastornos de la articulación temporomandibular, dolor orofacial y placas para bruxismo.",
+    "process.eyebrow":"Tu Experiencia",
+    "process.title":"Un camino <em>claro y cuidado</em> hacia tu sonrisa",
+    "process.s1.h":"Valoración inicial","process.s1.p":"Evaluación completa, radiografías digitales y escucha activa de tus objetivos.",
+    "process.s2.h":"Plan personalizado","process.s2.p":"Diseñamos tu tratamiento con tiempos, opciones y presupuesto transparente.",
+    "process.s3.h":"Tratamiento","process.s3.p":"Ejecutamos cada fase con precisión, tecnología y tu comodidad como prioridad.",
+    "process.s4.h":"Seguimiento","process.s4.p":"Controles periódicos y cuidado continuo para que tu sonrisa dure toda la vida.",
+    "test.eyebrow":"Testimonios","test.title":"Lo que dicen <em>nuestros pacientes</em>",
+    "test.t1":"Llegué con miedo al dentista y salí enamorada del resultado. La doctora es meticulosa y el equipo es increíble. Mi sonrisa cambió por completo.",
+    "test.t1.w":"Diseño de sonrisa",
+    "test.t2":"Vine desde EE.UU. para mi tratamiento y no pude estar más feliz. Atención de primera, bilingüe y con un nivel de detalle que rivaliza con cualquier clínica.",
+    "test.t2.w":"Implantes dentales",
+    "test.t3":"Los brackets invisibles me cambiaron la vida. Proceso sin dolor, resultados espectaculares y una atención humana que no se encuentra fácil.",
+    "test.t3.w":"Ortodoncia invisible",
+    "gallery.eyebrow":"Galería","gallery.title":"Antes & <em>después</em>",
+    "gallery.lead":"Resultados reales de pacientes reales. (Imágenes temporales — se reemplazarán con casos de la clínica).",
+    "contact.eyebrow":"Contacto","contact.title":"Agenda tu <em>consulta</em>",
+    "contact.lead":"Cuéntanos qué necesitas y te responderemos en menos de 24 horas.",
+    "form.name":"Nombre completo","form.phone":"Teléfono / WhatsApp","form.email":"Correo electrónico",
+    "form.service":"Servicio de interés","form.opt.choose":"Elige un servicio…",
+    "form.msg":"Mensaje","form.msg.ph":"Cuéntanos un poco sobre lo que buscas…","form.submit":"Enviar solicitud",
+    "contact.addr":"Dirección","contact.addr.v":"Av. Circunvalar, Edificio Portal de los Alpes<br/>Local 104, Pereira, Risaralda",
+    "contact.tel":"Teléfono","contact.hours":"Horario de atención",
+    "contact.mon":"Lunes – Viernes","contact.sat":"Sábado","contact.sun":"Domingo","contact.closed":"Cerrado",
+    "footer.about":"Odontología integral con precisión, calidez y los más altos estándares internacionales. Tu sonrisa, nuestra vocación.",
+    "footer.nav":"Navegación","footer.svc":"Servicios","footer.contact":"Contacto",
+    "footer.rights":"© 2026 Dra. Xiomara Bolívar. Todos los derechos reservados.",
+    "footer.privacy":"Política de privacidad","footer.terms":"Términos",
+    "tab.booking":"Agendar Cita","tab.pqrsf":"Tu Opinión",
+    "pqrsf.title":"Quejas · Sugerencias · Felicitaciones",
+    "pqrsf.lead":"Tu opinión es el ingrediente más valioso de nuestra atención. Cuéntanos cómo fue tu experiencia — con total confianza y, si lo prefieres, de forma anónima.",
+    "pqrsf.s1.title":"¿Qué deseas compartir hoy?","pqrsf.s1.sub":"Elige la opción que mejor describa tu mensaje",
+    "pqrsf.cat.praise":"Felicitación","pqrsf.cat.praise.d":"Nos alegra saber que te atendimos bien",
+    "pqrsf.cat.suggest":"Sugerencia","pqrsf.cat.suggest.d":"Ayúdanos a mejorar con tu idea",
+    "pqrsf.cat.complaint":"Queja","pqrsf.cat.complaint.d":"Cuéntanos qué salió mal",
+    "pqrsf.continue":"Continuar →","pqrsf.back":"← Volver",
+    "pqrsf.s2.title":"Cuéntanos tu experiencia","pqrsf.s2.sub":"¿Cómo calificarías tu visita?",
+    "pqrsf.stars.tap":"Toca una estrella",
+    "pqrsf.stars.1":"Necesitamos mejorar mucho — gracias por decirlo",
+    "pqrsf.stars.2":"Lamentamos no haber cumplido tus expectativas",
+    "pqrsf.stars.3":"Queremos superar tus expectativas",
+    "pqrsf.stars.4":"¡Nos alegra haberte atendido bien!",
+    "pqrsf.stars.5":"¡Gracias por hacernos brillar! ✨",
+    "pqrsf.date":"Fecha de la visita","pqrsf.optional":"(opcional)",
+    "pqrsf.dentist":"Odontólogo(a) que te atendió","pqrsf.select":"— Selecciona —",
+    "pqrsf.other":"Otro miembro del equipo","pqrsf.dontremember":"No recuerdo",
+    "pqrsf.message":"Tu mensaje","pqrsf.message.ph":"Escríbenos con total libertad. Cada palabra cuenta.",
+    "pqrsf.msg.err":"Por favor cuéntanos brevemente tu experiencia.",
+    "pqrsf.s3.title":"Un último detalle","pqrsf.s3.sub":"Si deseas respuesta, déjanos tus datos. Puedes omitirlos para enviar de forma anónima.",
+    "pqrsf.fullname":"Nombre completo","pqrsf.name.ph":"Ej. María Gómez",
+    "pqrsf.cedula":"Cédula","pqrsf.email":"Correo electrónico","pqrsf.phone":"Teléfono / WhatsApp",
+    "pqrsf.consent":"Acepto el <strong>tratamiento de mis datos personales</strong> conforme a la Ley 1581 de 2012 y la política de privacidad de la Dra. Xiomara Bolívar Odontología, con la finalidad de gestionar esta petición, queja, reclamo, sugerencia o felicitación. Mis datos no serán compartidos con terceros sin mi autorización.",
+    "pqrsf.consent.err":"Debes aceptar el tratamiento de datos para continuar.",
+    "pqrsf.submit":"Enviar mensaje ✨",
+    "pqrsf.thanks":"¡Gracias de corazón!",
+    "pqrsf.thanks.p":"Hemos recibido tu mensaje. Cada palabra nos ayuda a cuidar mejor tu sonrisa. Si dejaste tus datos, te contactaremos muy pronto.",
+    "pqrsf.another":"Enviar otro mensaje",
+    "pqrsf.qr.title":"Comparte este formulario",
+    "pqrsf.qr.sub":"Escanea o imprime el código QR para que tus pacientes accedan fácilmente",
+    "pqrsf.qr.download":"⬇ Descargar QR","pqrsf.qr.print":"🖨 Imprimir"
+  },
+  en: {
+    "meta.title":"Dr. Xiomara Bolívar · Dentistry of Excellence",
+    "meta.desc":"Dr. Xiomara Bolívar — Comprehensive dentistry of excellence. Orthodontics, implants, smile design, cosmetic dentistry and more.",
+    "brand.tag":"Dentistry · Odontología",
+    "nav.about":"About","nav.services":"Services","nav.process":"Process","nav.testimonials":"Reviews","nav.contact":"Contact","nav.book":"Book",
+    "hero.eyebrow":"Dentistry of Excellence",
+    "hero.title":"Your voice shapes <em>our smile</em>.",
+    "hero.lead":"Comprehensive dental care with precision, warmth and the highest standards. We craft smiles that radiate confidence, health and natural beauty.",
+    "hero.cta1":"Book consultation","hero.cta2":"Explore services",
+    "hero.stat1":"Years of experience","hero.stat2":"Smiles restored","hero.stat3":"Satisfied patients",
+    "hero.badge":"Dentist · Clinical Director",
+    "about.eyebrow":"About Us",
+    "about.title":"A practice built on <em>trust and excellence</em>",
+    "about.lead":"We combine the most advanced dentistry with a warm, human approach. Every smile is unique, and every treatment is tailored to your needs, your health and your lifestyle.",
+    "about.p1.h":"Cutting-edge technology","about.p1.p":"3D intraoral scanners, digital X-rays and smile design software for precise results.",
+    "about.p2.h":"Human, warm care","about.p2.p":"We listen before we treat. We explain every step so you can make calm, informed decisions.",
+    "about.p3.h":"Certified biosafety","about.p3.p":"Sterilization and biosafety protocols that meet the highest international standards.",
+    "about.p4.h":"Bilingual service","about.p4.p":"We offer consultations in Spanish and English for local and international patients visiting Colombia.",
+    "services.eyebrow":"Our Services",
+    "services.title":"Complete treatments for your <em>ideal smile</em>",
+    "services.lead":"From preventive check-ups to full mouth rehabilitation. All under one roof, with technology and expertise that make the difference.",
+    "svc.cta":"Inquire",
+    "svc.general.h":"General Dentistry","svc.general.p":"Check-ups, professional cleanings, sealants, fluoride and prevention to protect your long-term oral health.",
+    "svc.ortho.h":"Orthodontics","svc.ortho.p":"Metal, ceramic and self-ligating braces plus Invisalign-style clear aligners to correct your bite and alignment.",
+    "svc.smile.h":"Smile Design","svc.smile.p":"Custom digital smile design with porcelain veneers, composite and facial proportions for a natural, harmonious smile.",
+    "svc.white.h":"Teeth Whitening","svc.white.p":"Professional in-office and at-home whitening with safe gels to bring back your natural brightness.",
+    "svc.implants.h":"Dental Implants","svc.implants.p":"Replace missing teeth with state-of-the-art titanium implants. Single, multiple and full-arch rehabilitation.",
+    "svc.crowns.h":"Crowns & Veneers","svc.crowns.p":"Porcelain, zirconia and e-max crowns. Aesthetic veneers to transform shape, color and alignment of your teeth.",
+    "svc.endo.h":"Endodontics","svc.endo.p":"Root canal treatment with microscope and latest rotary systems. We preserve your natural tooth, pain-free.",
+    "svc.perio.h":"Periodontics","svc.perio.p":"Prevention and treatment of gum disease. Prophylaxis, scaling, periodontal surgery and tissue regeneration.",
+    "svc.surgery.h":"Oral Surgery & Extractions","svc.surgery.p":"Simple and surgical extractions, wisdom teeth, frenectomies and minor surgeries with anesthesia and conscious sedation.",
+    "svc.kids.h":"Pediatric Dentistry","svc.kids.p":"Specialized, caring treatment for children. Prevention, sealants, interceptive orthodontics and behavior guidance.",
+    "svc.prost.h":"Prosthodontics & Rehabilitation","svc.prost.p":"Fixed, removable and full dentures. Complete oral rehabilitation with both aesthetic and functional focus.",
+    "svc.tmj.h":"TMJ & Bruxism","svc.tmj.p":"Diagnosis and treatment of temporomandibular joint disorders, orofacial pain and night guards for bruxism.",
+    "process.eyebrow":"Your Experience",
+    "process.title":"A <em>clear, caring path</em> to your smile",
+    "process.s1.h":"Initial assessment","process.s1.p":"Full evaluation, digital X-rays and active listening to your goals.",
+    "process.s2.h":"Personalized plan","process.s2.p":"We design your treatment with clear timelines, options and transparent pricing.",
+    "process.s3.h":"Treatment","process.s3.p":"We deliver each phase with precision, technology and your comfort as a priority.",
+    "process.s4.h":"Follow-up","process.s4.p":"Periodic check-ups and ongoing care so your smile lasts a lifetime.",
+    "test.eyebrow":"Reviews","test.title":"What our <em>patients say</em>",
+    "test.t1":"I came in afraid of the dentist and left in love with the result. The doctor is meticulous and the team is amazing. My smile is completely transformed.",
+    "test.t1.w":"Smile design",
+    "test.t2":"Came from the US for treatment and couldn't be happier. Top-tier care, bilingual attention, and a level of detail that rivals any clinic I've been to.",
+    "test.t2.w":"Dental implants",
+    "test.t3":"Invisible braces changed my life. Painless process, spectacular results and a level of human care that's hard to find.",
+    "test.t3.w":"Invisible orthodontics",
+    "gallery.eyebrow":"Gallery","gallery.title":"Before & <em>after</em>",
+    "gallery.lead":"Real results from real patients. (Placeholder images — to be replaced with clinic cases).",
+    "contact.eyebrow":"Contact","contact.title":"Book your <em>consultation</em>",
+    "contact.lead":"Tell us what you need and we'll respond within 24 hours.",
+    "form.name":"Full name","form.phone":"Phone / WhatsApp","form.email":"Email",
+    "form.service":"Service of interest","form.opt.choose":"Choose a service…",
+    "form.msg":"Message","form.msg.ph":"Tell us a little about what you're looking for…","form.submit":"Send request",
+    "contact.addr":"Address","contact.addr.v":"Av. Circunvalar, Edificio Portal de los Alpes<br/>Local 104, Pereira, Risaralda",
+    "contact.tel":"Phone","contact.hours":"Business hours",
+    "contact.mon":"Monday – Friday","contact.sat":"Saturday","contact.sun":"Sunday","contact.closed":"Closed",
+    "footer.about":"Comprehensive dentistry with precision, warmth and the highest international standards. Your smile, our calling.",
+    "footer.nav":"Navigation","footer.svc":"Services","footer.contact":"Contact",
+    "footer.rights":"© 2026 Dr. Xiomara Bolívar. All rights reserved.",
+    "footer.privacy":"Privacy policy","footer.terms":"Terms",
+    "tab.booking":"Book Appointment","tab.pqrsf":"Your Feedback",
+    "pqrsf.title":"Complaints · Suggestions · Praise",
+    "pqrsf.lead":"Your opinion is the most valuable ingredient of our care. Tell us about your experience — with full confidence and, if you prefer, anonymously.",
+    "pqrsf.s1.title":"What would you like to share today?","pqrsf.s1.sub":"Choose the option that best describes your message",
+    "pqrsf.cat.praise":"Praise","pqrsf.cat.praise.d":"We're glad we took good care of you",
+    "pqrsf.cat.suggest":"Suggestion","pqrsf.cat.suggest.d":"Help us improve with your idea",
+    "pqrsf.cat.complaint":"Complaint","pqrsf.cat.complaint.d":"Tell us what went wrong",
+    "pqrsf.continue":"Continue →","pqrsf.back":"← Back",
+    "pqrsf.s2.title":"Tell us about your experience","pqrsf.s2.sub":"How would you rate your visit?",
+    "pqrsf.stars.tap":"Tap a star",
+    "pqrsf.stars.1":"We need to improve a lot — thank you for telling us",
+    "pqrsf.stars.2":"We're sorry we didn't meet your expectations",
+    "pqrsf.stars.3":"We want to exceed your expectations",
+    "pqrsf.stars.4":"We're glad we took good care of you!",
+    "pqrsf.stars.5":"Thank you for making us shine! ✨",
+    "pqrsf.date":"Date of visit","pqrsf.optional":"(optional)",
+    "pqrsf.dentist":"Dentist who treated you","pqrsf.select":"— Select —",
+    "pqrsf.other":"Another team member","pqrsf.dontremember":"I don't remember",
+    "pqrsf.message":"Your message","pqrsf.message.ph":"Write freely. Every word counts.",
+    "pqrsf.msg.err":"Please tell us briefly about your experience.",
+    "pqrsf.s3.title":"One last detail","pqrsf.s3.sub":"If you'd like a response, leave your details. You can skip them to submit anonymously.",
+    "pqrsf.fullname":"Full name","pqrsf.name.ph":"e.g. María Gómez",
+    "pqrsf.cedula":"ID number","pqrsf.email":"Email","pqrsf.phone":"Phone / WhatsApp",
+    "pqrsf.consent":"I accept the <strong>processing of my personal data</strong> in accordance with Law 1581 of 2012 and the privacy policy of Dr. Xiomara Bolívar Dentistry, for the purpose of managing this petition, complaint, claim, suggestion or praise. My data will not be shared with third parties without my authorization.",
+    "pqrsf.consent.err":"You must accept data processing to continue.",
+    "pqrsf.submit":"Send message ✨",
+    "pqrsf.thanks":"Thank you from the heart!",
+    "pqrsf.thanks.p":"We've received your message. Every word helps us take better care of your smile. If you left your details, we'll contact you very soon.",
+    "pqrsf.another":"Send another message",
+    "pqrsf.qr.title":"Share this form",
+    "pqrsf.qr.sub":"Scan or print the QR code so your patients can access it easily",
+    "pqrsf.qr.download":"⬇ Download QR","pqrsf.qr.print":"🖨 Print"
+  }
+};
+
+function applyLang(lang){
+  const dict = I18N[lang]; if(!dict) return;
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k = el.getAttribute('data-i18n'); if(dict[k]!==undefined) el.textContent = dict[k];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el=>{
+    const k = el.getAttribute('data-i18n-html'); if(dict[k]!==undefined) el.innerHTML = dict[k];
+  });
+  document.querySelectorAll('[data-i18n-attr]').forEach(el=>{
+    const spec = el.getAttribute('data-i18n-attr'); // "placeholder|key"
+    const [attr,key] = spec.split('|');
+    if(dict[key]!==undefined) el.setAttribute(attr, dict[key]);
+  });
+  const t = document.querySelector('title[data-i18n]'); if(t && dict[t.getAttribute('data-i18n')]) t.textContent = dict[t.getAttribute('data-i18n')];
+  const m = document.querySelector('meta[name="description"][data-i18n]'); if(m && dict[m.getAttribute('data-i18n')]) m.setAttribute('content', dict[m.getAttribute('data-i18n')]);
+  localStorage.setItem('xb-lang', lang);
+  document.querySelectorAll('.lang-toggle button').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
+}
+document.querySelectorAll('.lang-toggle button').forEach(b=>b.addEventListener('click',()=>applyLang(b.dataset.lang)));
+applyLang(localStorage.getItem('xb-lang') || (navigator.language.startsWith('en')?'en':'es'));
+
+/* ===== Mobile nav ===== */
+document.getElementById('mobileToggle').addEventListener('click',()=>{
+  document.getElementById('navLinks').classList.toggle('open');
+});
+document.querySelectorAll('#navLinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open')));
+
+/* ===== Reveal ===== */
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ===== Contact Tabs ===== */
+document.querySelectorAll('.contact-tab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    document.querySelectorAll('.contact-tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.tab-pane').forEach(p=>p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('tab-'+tab.dataset.tab).classList.add('active');
+  });
+});
+
+/* ===== Booking form submit ===== */
+document.getElementById('contactForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const fd = new FormData(e.target);
+  const name = encodeURIComponent(fd.get('name')||'');
+  const service = encodeURIComponent(fd.get('service')||'');
+  const msg = encodeURIComponent(fd.get('message')||'');
+  const text = `Hola, soy ${decodeURIComponent(name)}. Me interesa: ${decodeURIComponent(service)}. ${decodeURIComponent(msg)}`;
+  window.open(`https://wa.me/573127250316?text=${encodeURIComponent(text)}`,'_blank');
+});
+
+/* ===== PQRSF Form ===== */
+(function(){
+  const steps=[...document.querySelectorAll('.pqrsf-step')];
+  const dots=[...document.querySelectorAll('.pqrsf-stepdot')];
+  let cur=1;
+  function pqrsfGoto(n){
+    cur=n;
+    steps.forEach(s=>s.classList.toggle('active',+s.dataset.pstep===n));
+    dots.forEach((d,i)=>d.classList.toggle('active',i<n));
+    document.querySelector('.pqrsf-card').scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  document.querySelectorAll('[data-pback]').forEach(b=>b.addEventListener('click',()=>pqrsfGoto(cur-1)));
+
+  // Category select
+  const cats=document.querySelectorAll('.pqrsf-cat');
+  const tipoInput=document.getElementById('pqrsf-tipo');
+  const toStep2=document.getElementById('pqrsf-toStep2');
+  cats.forEach(c=>c.addEventListener('click',()=>{
+    cats.forEach(x=>x.classList.remove('selected'));
+    c.classList.add('selected');
+    tipoInput.value=c.dataset.pcat;
+    toStep2.disabled=false;
+  }));
+  toStep2.addEventListener('click',()=>{if(tipoInput.value)pqrsfGoto(2)});
+
+  // Stars
+  const starCapsES={'1 estrella':'pqrsf.stars.1','2 estrellas':'pqrsf.stars.2','3 estrellas':'pqrsf.stars.3','4 estrellas':'pqrsf.stars.4','5 estrellas':'pqrsf.stars.5'};
+  document.querySelectorAll('.pqrsf-stars input').forEach(r=>r.addEventListener('change',()=>{
+    const lang=localStorage.getItem('xb-lang')||'es';
+    const key=starCapsES[r.value];
+    if(key && I18N[lang] && I18N[lang][key])
+      document.getElementById('pqrsf-starsCaption').textContent=I18N[lang][key];
+  }));
+
+  // Step 2 -> 3
+  document.getElementById('pqrsf-toStep3').addEventListener('click',()=>{
+    const msg=document.getElementById('pqrsf-mensaje');
+    const field=msg.closest('.pqrsf-field');
+    if(!msg.value.trim()||msg.value.trim().length<5){field.classList.add('invalid');return}
+    field.classList.remove('invalid');
+    pqrsfGoto(3);
+  });
+
+  // Submit
+  const form=document.getElementById('pqrsfForm');
+  form.addEventListener('submit',async(e)=>{
+    e.preventDefault();
+    const consent=document.getElementById('pqrsf-consent');
+    if(!consent.checked){document.getElementById('pqrsf-consentErr').style.display='block';return}
+    document.getElementById('pqrsf-consentErr').style.display='none';
+    const btn=document.getElementById('pqrsf-submitBtn');
+    const txt=document.getElementById('pqrsf-submitText');
+    btn.disabled=true;
+    txt.innerHTML='<span class="pqrsf-loader"></span> Enviando...';
+    try{
+      const data=new FormData(form);
+      const res=await fetch('https://api.web3forms.com/submit',{method:'POST',body:data});
+      const json=await res.json();
+      if(json.success){pqrsfGoto(4)}
+      else{throw new Error(json.message||'Error')}
+    }catch(err){
+      alert('Hubo un problema al enviar. Intenta de nuevo o escríbenos por WhatsApp.');
+      btn.disabled=false;
+      txt.textContent='Enviar mensaje ✨';
+    }
+  });
+
+  // Reset
+  window.resetPqrsf=function(){
+    form.reset();
+    cats.forEach(x=>x.classList.remove('selected'));
+    toStep2.disabled=true;
+    document.getElementById('pqrsf-starsCaption').textContent='Toca una estrella';
+    document.getElementById('pqrsf-submitBtn').disabled=false;
+    document.getElementById('pqrsf-submitText').textContent='Enviar mensaje ✨';
+    pqrsfGoto(1);
+  };
+})();
+
+/* ===== PQRSF QR ===== */
+(function(){
+  const qrEl=document.getElementById('pqrsf-qrcode');
+  if(!qrEl)return;
+  const s=document.createElement('script');
+  s.src='https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js';
+  s.onload=function(){
+    new QRCode(qrEl,{
+      text:window.location.href.split('#')[0]+'#contact',
+      width:200,height:200,
+      colorDark:'#1c1710',colorLight:'#ffffff',
+      correctLevel:QRCode.CorrectLevel.H
+    });
+  };
+  document.head.appendChild(s);
+})();
+function downloadPqrsfQR(){
+  const el=document.getElementById('pqrsf-qrcode');
+  const canvas=el.querySelector('canvas');
+  const img=el.querySelector('img');
+  const url=canvas?canvas.toDataURL('image/png'):(img?img.src:null);
+  if(!url)return;
+  const a=document.createElement('a');
+  a.href=url;a.download='QR-DraXiomaraBolivar-PQRSF.png';a.click();
+}
+</script>
+</body>
+</html>
